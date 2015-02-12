@@ -1,0 +1,118 @@
+QLabel {
+    color: #EEEEEE;
+}
+
+QPushButton {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px 5px;
+    background-color: qlineargradient(
+	x1:0, y1:0, x2:0, y2:1,
+	stop:0 #565686,
+	stop: 0.4 #484856, 
+	stop: 0.5 #303048
+	stop: 1 #202038
+    );
+    color: white;
+}
+
+QPushButton:!enabled {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px 5px;
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #808080,
+        stop: 0.4 #606060,
+        stop: 0.5 #404040
+        stop: 1 #202020
+    );
+    color: white;
+}
+
+QPushButton:pressed {
+    color: white;    
+}
+
+QDialog {
+    background-color: #242424;
+}
+
+QTabWidget::pane {
+    background-color: #242424;
+}
+
+QTabBar::tab {
+     background-color: qlineargradient(
+	x1:0, y1:0, x2:0, y2:1,
+	stop:0 #565686,
+	stop: 0.4 #484856, 
+	stop: 0.5 #303048
+	stop: 1 #202038
+    );
+    color: #FFFFFF;
+    border: 2px solid #C4C4C3;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 20ex;
+    border: 1px solid black;
+    padding: 3px 5px;
+}
+
+QTabBar::tab::selected {
+     background-color: qlineargradient(
+	x1:0, y1:0, x2:0, y2:1,
+	stop:0 #9999BB,
+	stop: 0.4 #8888AA, 
+	stop: 0.5 #666688
+	stop: 1 #202038
+    );
+    color: #FFFFFF;
+    border: 2px solid #C4C4C3;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 20ex;
+    border: 1px solid black;
+    padding: 3px 5px;
+}
+
+QLineEdit {
+    color: #EEEEEE;
+    background-color: #323232;
+    border: 1px solid black;
+}
+
+QLineEdit:!enabled {
+    color: #808080;
+    background-color: #202020;
+    border: 1px solid black;
+}
+
+QComboBox {
+    color: #EEEEEE;
+    background-color: #323232;
+    border: 1px solid black;
+}
+
+QSplitter::handle {
+     background-color: #444444;
+ }
+
+QComboBox QAbstractItemView::item {
+    background-color: #323232;
+    color: white;
+}
+
+QPlainTextEdit {
+    color: #EEEEEE;
+    background-color: #323232;
+}
+
+QPlainTextEdit:!enabled {
+    color: #808080;
+    background-color: #202020;
+}
+
+QPushButton:pressed {
+    color: black;
+}
