@@ -4,7 +4,7 @@
 #include "regexbuilder/builder.h"
 #include "regexbuilder/preprocessor.h"
 #include "regexbuilder/tokencompat.h"
-#include "regexopt/libregex.hh"
+//#include "regexopt/libregex.hh"
 
 #include <QDebug>
 #include <QDir>
@@ -250,6 +250,7 @@ void RegexEditor::on_createFileBtn_clicked()
 
 void RegexEditor::on_optimize_clicked()
 {
+    /*
     try {
         unsigned pos=0;
 
@@ -267,4 +268,5 @@ void RegexEditor::on_optimize_clicked()
     {
         ui->regexOutput->setPlainText(QString::fromStdString(s));
     }
+    */
 }
