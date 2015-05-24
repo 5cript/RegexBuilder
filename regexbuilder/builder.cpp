@@ -92,6 +92,21 @@ namespace RegexBuilder {
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                auto curlyExpected = [&](decltype(currentToken) curlyToken) {
+                    for (;curlyToken != lastToken && curlyToken->type == TokenTypes::LINE_FEED; ++curlyToken)
+                        {}
+
+                    if (curlyToken == lastToken || curlyToken->type != TokenTypes::SECTION_START)
+                    {
+                        if (curlyToken != lastToken)
+                            throw std::runtime_error ("open curly expected after class attribute, got: "s + curlyToken->data);
+                        else
+                            throw std::runtime_error ("open curly expected after class attribute, got the end of input");
+                    }
+                    else
+                        sectionStart = curlyToken;
+                };
+
                 auto extractAttributes = [&]() -> std::string {
                     auto colonToken = nextToken + 1; // misnomer
                     if (colonToken != lastToken && colonToken->type == TokenTypes::COLON)
@@ -105,27 +120,13 @@ namespace RegexBuilder {
                         else
                             throw std::runtime_error ("class qualifier ist not an identifier");
 
-                        auto curlyToken = attributeToken + 1;
-                        if (curlyToken == lastToken || curlyToken->type != TokenTypes::SECTION_START)
-                        {
-                            if (curlyToken != lastToken)
-                                throw std::runtime_error ("open curly expected after class attribute, got: "s + curlyToken->data);
-                            else
-                                throw std::runtime_error ("open curly expected after class attribute, got the end of input");
-                        }
+                        curlyExpected(attributeToken + 1);
 
                         return attribute;
                     }
                     else
                     {
-                        auto curlyToken = nextToken + 1;
-                        if (curlyToken == lastToken || curlyToken->type != TokenTypes::SECTION_START)
-                        {
-                            if (curlyToken != lastToken)
-                                throw std::runtime_error ("open curly or attribute expected after class name, got: "s + curlyToken->data);
-                            else
-                                throw std::runtime_error ("open curly or attribute expected after class name, got the end of input");
-                        }
+                        curlyExpected(nextToken + 1);
                     }
                     return "";
                 };

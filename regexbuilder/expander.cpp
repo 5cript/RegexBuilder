@@ -64,7 +64,7 @@ namespace RegexBuilder {
         {
             ++loopBreak;
             if (loopBreak > recursionDepthLimit)
-                throw std::runtime_error("exceeded limit recursion depth limit (you might have accidentally built a selfreferencing class)");
+                throw std::runtime_error("exceeded recursion depth limit (you might have accidentally built a selfreferencing class)");
 
             auto currentExpansionLine = expandables.front();
 

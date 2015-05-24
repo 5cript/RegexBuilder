@@ -42,7 +42,7 @@ namespace RegexBuilder {
         if (sectionStart == sectionEnd)
             throw std::runtime_error ("unexpected end of stream");
 
-        for (auto iter = sectionStart; iter < sectionEnd; ++iter)
+        for (auto iter = sectionStart + 1; iter < sectionEnd; ++iter)
         {
             if (iter->type == TokenTypes::LINE_FEED)
                 continue;
