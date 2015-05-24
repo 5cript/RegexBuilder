@@ -5,6 +5,9 @@
 namespace RegexBuilder {
     bool isKeyword(const std::string &toCheck)
     {
-        return std::end(keywords) == std::find(std::begin(keywords), std::end(keywords), toCheck.c_str());
+        for (auto const& i : keywords)
+            if (toCheck == i)
+                return true;
+        return false;
     }
 } // namespace RegexBuilder
