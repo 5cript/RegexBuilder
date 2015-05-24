@@ -140,7 +140,7 @@ namespace RegexBuilder {
                 std::vector <std::string> attrList = {};
                 if (!attribute.empty())
                     attrList.push_back(attribute);
-                createClass(keyword, className, attrList, currentToken + 3 + 2*attrList.size(), sectionEnd);
+                createClass(keyword, className, attrList, currentToken + 3 + 2 * attrList.size() + 1, sectionEnd);
 
                 currentToken = sectionEnd;
             }
