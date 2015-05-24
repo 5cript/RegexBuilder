@@ -30,7 +30,7 @@ namespace RegexBuilder {
                 std::string::iterator, lex_iterator_type>
                 context_type;
 
-        context_type ctx(begin, end, "opened file");
+        context_type ctx(begin, end, "OPENED_FILE");
         ctx.set_language(boost::wave::support_cpp11);
 
         ctx.add_sysinclude_path(libraryPath.c_str());
