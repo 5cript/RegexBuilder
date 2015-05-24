@@ -15,7 +15,9 @@ namespace RegexBuilder {
         "back",
         "contains",
         "atomic",
-        "capture"
+        "capture",
+        "raw",
+        "insensitive"
     };
 
     bool isKeyword(std::string const& toCheck);
