@@ -44,7 +44,7 @@ namespace RegexBuilder {
         unsigned int loopBreak = 0;
 
         auto findBiggestMatch = [this](std::string const& str, std::size_t& pos) {
-            unsigned int max = 0;
+            std::size_t max = 0;
             std::remove_reference_t<decltype(*regexClasses_)>::iterator biggest = std::end(*regexClasses_);
             for (auto clas = std::begin(*regexClasses_); clas != std::end(*regexClasses_); ++clas)
             {
@@ -71,10 +71,10 @@ namespace RegexBuilder {
             auto str = exps[currentExpansionLine]; // get the string behind the sequence that may contain expandables
             // traverse all possible regex classes defined
 
-            std::size_t pos;
+            std::size_t pos = std::string::npos;
             auto biggest = findBiggestMatch(str, pos);
 
-            if (biggest != std::end(*regexClasses_))
+            if (biggest != std::end(*regexClasses_) && pos != std::string::npos)
             {
                 auto const& clas = *biggest;
 
